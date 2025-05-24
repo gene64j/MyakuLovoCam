@@ -1,0 +1,223 @@
+    * { margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: black;
+    }
+
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    #three-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      pointer-events: auto;
+    }
+
+    .button-row {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .control-button {
+      width: 16vw;
+      height: 16vw;
+      border-radius: 50%;
+      border: 2px solid white;
+      background-color: rgba(255,255,255,0.2);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .control-button:active {
+      background-color: rgba(255,255,255,0.5);
+    }
+
+    .icon {
+      font-size: 24px;
+      color: white;
+      pointer-events: none;
+    }
+
+    #snapshot {
+      display: none;
+      z-index: 5;
+    }
+
+    .slider-row {
+      position: absolute;
+      bottom: 25vw; /* 撮影ボタンより上 */
+      width: 80%;
+      left: 10%;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+    }
+
+    #light-slider {
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 6px;
+      border-radius: 5px;
+      background: #ddd;
+      outline: none;
+      opacity: 0.8;
+    }
+
+    #light-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: white;
+      cursor: pointer;
+    }
+
+    #light-slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: white;
+      cursor: pointer;
+    }
+
+    .icon-image {
+      width: 60%;
+      height: 60%;
+      object-fit: contain;
+      pointer-events: none;
+    }
+
+    .disabled-button {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    /* 追加：縦スライダー */
+    .vertical-slider-row {
+      position: absolute;
+      top: 10%;
+      bottom: 20%;
+      right: 2vw;
+      width: 6vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    #light-slider {
+      writing-mode: vertical-lr;  /* 縦方向にスライダーを描画 */
+      direction: rtl;             /* つまみが下→上へ動くように */
+      width: 6px;
+      height: 80%;
+      appearance: none;           /* ベーススタイルを削除してカスタム可能に */
+      background: #ddd;
+      border-radius: 5px;
+    }
+
+    #rotate-slider {
+      appearance: none;;
+      width: 100%;
+      height: 6px;
+      border-radius: 5px;
+      background: #ddd;
+      opacity: 0.8;
+      appearance: none;
+    }
+
+    /* LIGHT: 明かりを示す（例：黄色の電球） */
+    #light-slider::-webkit-slider-thumb {
+      background: url('asset/bulb.png') no-repeat center center;
+      background-size: cover;
+      border: none;
+      width: 10vmin;
+      height: 10vmin;
+      border-radius: 50%;
+    }
+
+    #light-slider::-moz-range-thumb {
+      background: url('asset/bulb.png') no-repeat center center;
+      background-size: cover;
+      border: none;
+      width: 10vmin;
+      height: 10vmin;
+      border-radius: 50%;
+    }
+
+    /* ROTATE: 回転を示す（例：円形矢印） */
+    #rotate-slider::-webkit-slider-thumb {
+      appearance: none;;
+      background: url('asset/rotate-icon.png') no-repeat center center;
+      background-size: cover;
+      border: none;
+      width: 10vmin;
+      height: 10vmin;
+      border-radius: 50%;
+    }
+
+    #rotate-slider::-moz-range-thumb {
+      appearance: none;;
+      background: url('asset/rotate-icon.png') no-repeat center center;
+      background-size: cover;
+      border: none;
+      width: 10vmin;
+      height: 10vmin;
+      border-radius: 50%;
+    }
+
+    .modal {
+      display: none; /* 初期状態では非表示 */
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 20px 30px;
+      border-radius: 12px;
+      max-width: 90%;
+      width: 320px;
+      color: #000;
+      text-align: left;
+      font-size: 14px;
+      position: relative;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
