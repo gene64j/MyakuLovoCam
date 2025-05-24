@@ -59,7 +59,9 @@
         model.traverse(child => {
           if (child.isMesh && child.material) {
             child.material.transparent = true;
-            child.material.opacity = 0.3;
+            if (lastImageURL === null) {
+              child.material.opacity = 0.3; // 初期状態では透明
+            }
           }
         });
         scene.add(model);
