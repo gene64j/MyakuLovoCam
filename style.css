@@ -115,6 +115,11 @@ video {
     pointer-events: none;
 }
 
+#auto-btn {
+    opacity: 0;
+    pointer-events: none;
+}
+
 /* 追加：縦スライダー */
 .vertical-slider-row {
     position: absolute;

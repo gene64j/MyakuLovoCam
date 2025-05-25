@@ -7,9 +7,10 @@
     const snapshot = document.getElementById('snapshot');
     const captureButton = document.getElementById('capture-button');
     const downloadButton = document.getElementById('download-btn');
-    const returnButton = document.getElementById('return-btn');
+    const returnButton = document.getElementById('return-button');
     const settingButton = document.getElementById('setting-btn');
     const changeButton = document.getElementById('change-btn');
+    const autoButton = document.getElementById('auto-btn');
     const modelFiles = ['asset/model1.glb', 'asset/model2.glb', 'asset/model3.glb'];
     let modelIndex = 0;
     let model = null;
@@ -85,6 +86,7 @@
     changeButton.addEventListener('click', () => {
       modelIndex = (modelIndex + 1) % modelFiles.length;
       loadModel(modelFiles[modelIndex]);
+      rotateSlider.value = 0; // モデル変更時に回転角度をリセット
     });
 
     function resize() {
@@ -142,8 +144,8 @@
       lastImageURL = dataURL;
 
       downloadButton.classList.remove('disabled-button');
-      returnButton.classList.remove('disabled-button');
-      captureButton.classList.add('disabled-button');
+      returnButton.style.display = 'flex';
+      captureButton.style.display = 'none';
     }
 
     captureButton.addEventListener('click', capture);
@@ -158,8 +160,8 @@
       video.style.display = 'block';
       lastImageURL = null;
       downloadButton.classList.add('disabled-button');
-      returnButton.classList.add('disabled-button');
-      captureButton.classList.remove('disabled-button');
+      returnButton.style.display = 'none';
+      captureButton.style.display = 'flex';
     }
 
     downloadButton.addEventListener('click', () => {
