@@ -75,6 +75,7 @@
         controls.target.copy(center);
         camera.lookAt(controls.target);
         model.position.y += 0.5;
+        updateRotation();
       }, undefined, err => {
         console.error('モデル読み込みエラー:', err);
       });
@@ -86,7 +87,6 @@
     changeButton.addEventListener('click', () => {
       modelIndex = (modelIndex + 1) % modelFiles.length;
       loadModel(modelFiles[modelIndex]);
-      rotateSlider.value = 0; // モデル変更時に回転角度をリセット
     });
 
     function resize() {
@@ -211,14 +211,17 @@
     });
 
     returnButton.addEventListener('click', resetControls);
+
     const rotateSlider = document.getElementById('rotate-slider');
-    rotateSlider.addEventListener('input', () => {
+    rotateSlider.addEventListener('input', updateRotation);
+
+    function updateRotation() {
       const angleInDegrees = parseFloat(rotateSlider.value);
       const angleInRadians = angleInDegrees * Math.PI / 180;
       if (model) {
         model.rotation.z = angleInRadians;
       }
-    });
+    };
 
     const infoModal = document.getElementById('info-modal');
     const closeButton = infoModal.querySelector('.close-button');
