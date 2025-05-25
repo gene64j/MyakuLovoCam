@@ -5,9 +5,9 @@
     const video = document.getElementById('video');
     const canvas = document.getElementById('three-canvas');
     const snapshot = document.getElementById('snapshot');
-    const captureButton = document.getElementById('capture-button');
+    const captureButton = document.getElementById('capture-btn');
     const downloadButton = document.getElementById('download-btn');
-    const returnButton = document.getElementById('return-button');
+    const returnButton = document.getElementById('return-btn');
     const settingButton = document.getElementById('setting-btn');
     const changeButton = document.getElementById('change-btn');
     const autoButton = document.getElementById('auto-btn');
