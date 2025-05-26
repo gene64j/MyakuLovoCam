@@ -27,26 +27,26 @@ video {
 }
 
 .button-row {
-    position: absolute;
-    bottom: 30px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 10;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 3vh 0;
+  z-index: 10;
 }
 
 .control-button {
-    width: 16vw;
-    height: 16vw;
-    border-radius: 50%;
-    border: 2px solid white;
-    background-color: rgba(255,255,255,0.2);
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 16vmin;
+  height: 16vmin;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: rgba(255,255,255,0.2);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .control-button:active {
@@ -65,13 +65,14 @@ video {
 }
 
 .slider-row {
-    position: absolute;
-    bottom: 30vw; /* 撮影ボタンより上 */
-    width: 80%;
-    left: 10%;
-    z-index: 10;
-    display: flex;
-    justify-content: center;
+  position: absolute;
+  bottom: 30vmin;
+  left: 10vw;
+  width: 80vw;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  pointer-events: auto;
 }
 
 #light-slider {
