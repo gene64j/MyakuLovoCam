@@ -162,6 +162,7 @@ video {
     width: 10vmin;
     height: 10vmin;
     border-radius: 50%;
+    background-color: rgba(0,0,0,0.3);
 }
 
 #light-slider::-moz-range-thumb {
@@ -171,6 +172,7 @@ video {
     width: 10vmin;
     height: 10vmin;
     border-radius: 50%;
+    background-color: rgba(0,0,0,0.3);
 }
 
 /* ROTATE: 回転を示す（例：円形矢印） */
@@ -182,6 +184,7 @@ video {
     width: 10vmin;
     height: 10vmin;
     border-radius: 50%;
+    background-color: rgba(0,0,0,0.3);
 }
 
 #rotate-slider::-moz-range-thumb {
@@ -192,6 +195,7 @@ video {
     width: 10vmin;
     height: 10vmin;
     border-radius: 50%;
+    background-color: rgba(0,0,0,0.3);
 }
 
 .modal {
