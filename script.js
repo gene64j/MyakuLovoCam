@@ -261,11 +261,7 @@ shareButton.addEventListener('click', async () => {
   if (!lastImageURL) return;
 
   try {
-    const bgImg = new Image();
-    bgImg.onload = () => {
-      const mergedDataURL = createMergedDataURL(bgImg);
-    };
-    bgImg.src = lastImageURL;
+    const mergedDataURL = await createMergedDataURLFromImage(lastImageURL);
 
     const response = await fetch(mergedDataURL);
     const blob = await response.blob();
@@ -287,5 +283,17 @@ shareButton.addEventListener('click', async () => {
     alert('共有に失敗しました。');
   }
 });
+
+async function createMergedDataURLFromImage(dataURL) {
+  return new Promise((resolve, reject) => {
+    const bgImg = new Image();
+    bgImg.onload = () => {
+      const result = createMergedDataURL(bgImg);
+      resolve(result);
+    };
+    bgImg.onerror = reject;
+    bgImg.src = dataURL;
+  });
+}
 
 startCamera();
