@@ -11,7 +11,7 @@ const returnButton = document.getElementById('return-btn');
 const settingButton = document.getElementById('setting-btn');
 const changeButton = document.getElementById('change-btn');
 const autoButton = document.getElementById('auto-btn');
-const modelFiles = ['asset/model1.glb', 'asset/model2.glb', 'asset/model3.glb'];
+const modelFiles = ['asset/model1.glb', 'asset/model2.glb', 'asset/model3.glb', 'asset/model4.glb'];
 let modelIndex = 0;
 let model = null;
 
